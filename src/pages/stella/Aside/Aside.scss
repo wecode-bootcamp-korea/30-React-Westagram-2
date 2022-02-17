@@ -1,0 +1,227 @@
+.main-right {
+  width: 26%;
+  padding-right: 30px;
+  margin-left: 30px;
+
+  .userMain {
+    display: flex;
+    align-content: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+
+    a {
+      width: 52px;
+      height: 52px;
+      line-height: 52px;
+      background-color: #000;
+      color: #fff;
+      display: block;
+      border-radius: 50%;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    .main_user {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 52px;
+      padding-left: 15px;
+
+      span:nth-child(1) {
+        font-weight: bold;
+      }
+      span:nth-child(2) {
+        color: #bbb;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .insta-story {
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    height: 230px;
+    overflow: scroll;
+    margin-bottom: 20px;
+    background-color: #fff;
+
+    .intro_story {
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+
+      h2 {
+        color: #aaa;
+        font-size: 15px;
+        margin-left: 6px;
+      }
+
+      .all {
+        background-color: transparent;
+        border: transparent;
+        margin-right: 6px;
+      }
+    }
+
+    .story {
+      .set {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        padding-left: 15px;
+        margin-bottom: 10px;
+        .pic1 {
+          background-image: url(../../../../public/images/stella/pic1.jpeg);
+          width: 45px;
+          height: 45px;
+          border-radius: 50%;
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+          border: 3px solid palevioletred;
+        }
+        .pic2 {
+          background-image: url(../../../../public/images/stella/pic2.jpeg);
+          width: 45px;
+          height: 45px;
+          border-radius: 50%;
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+          border: 3px solid palevioletred;
+        }
+        .pic3 {
+          background-image: url(../../../../public/images/stella/pic3.jpeg);
+          width: 45px;
+          height: 45px;
+          border-radius: 50%;
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+          border: 3px solid palevioletred;
+        }
+        .pic4 {
+          background-image: url(../../../../public/images/stella/pic4.jpeg);
+          width: 45px;
+          height: 45px;
+          border-radius: 50%;
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+          border: 3px solid palevioletred;
+        }
+        .pic5 {
+          background-image: url(../../../../public/images/stella/pic5.JPG);
+          width: 45px;
+          height: 45px;
+          border-radius: 50%;
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+          border: 3px solid palevioletred;
+        }
+        .others {
+          display: flex;
+          flex-direction: column;
+          padding-left: 18px;
+
+          span {
+            &:nth-child(1) {
+              font-weight: bold;
+            }
+            &:nth-child(2) {
+              color: #aaa;
+              font-weight: bold;
+              font-size: 13px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .recommend {
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #fff;
+    .intro_recommend {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 18px;
+
+      h2 {
+        font-size: 15px;
+        color: #aaa;
+        margin-left: 6px;
+      }
+
+      .all {
+        background-color: transparent;
+        border: transparent;
+        margin-right: 6px;
+      }
+    }
+    .follow {
+      .sett {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 12px;
+        align-items: center;
+        a {
+          margin-left: 30px;
+          font-size: 14px;
+          margin-right: 6px;
+          margin-top: 10px;
+        }
+        .picc1 {
+          background-image: url(../../../../public/images/stella/picc1.jpeg);
+          width: 45px;
+          height: 45px;
+          border-radius: 50%;
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+          border: 1px solid #ddd;
+        }
+        .picc2 {
+          background-image: url(../../../../public/images/stella/picc2.jpeg);
+          width: 45px;
+          height: 45px;
+          border-radius: 50%;
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+          border: 1px solid #ddd;
+        }
+        .picc3 {
+          background-image: url(../../../../public/images/stella/picc3.jpeg);
+          width: 45px;
+          height: 45px;
+          border-radius: 50%;
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+          border: 1px solid #ddd;
+        }
+        .other_p {
+          display: flex;
+          flex-direction: column;
+          span {
+            &:nth-child(1) {
+              font-weight: bold;
+            }
+
+            &:nth-child(2) {
+              font-weight: bold;
+              color: #aaa;
+              font-size: 13px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
