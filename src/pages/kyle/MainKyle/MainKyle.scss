@@ -1,0 +1,191 @@
+.Main {
+  box-sizing: border-box;
+  width: 1400px;
+  height: 100vh;
+  background-color: #fafafa;
+
+  nav {
+    align-items: center;
+    padding: 10px 50px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #dbdbdb;
+    background-color: #ffffff;
+    margin-left: 150px;
+    margin-right: 150px;
+    padding-bottom: 17px;
+
+    .title {
+      font-family: 'Poor Story', cursive;
+      font-size: 25px;
+      font-weight: bolder;
+    }
+
+    .searchBox {
+      input {
+        height: 25px;
+        width: 200px;
+      }
+    }
+
+    .statusNav {
+      display: flex;
+      align-items: center;
+
+      a {
+        padding-right: 20px;
+
+        img {
+          width: 25px;
+        }
+      }
+    }
+  }
+
+  main {
+    // background-color: green;
+    display: flex;
+    height: 1200px;
+    width: 100%;
+    margin-bottom: 100px;
+
+    .feeds {
+      margin-top: 60px;
+      height: 90%;
+      width: 60%;
+      // background-color: orange;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      article {
+        width: 100%;
+        height: 900px;
+        margin-top: 40px;
+        margin-left: 145px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .feedsHeader {
+          background-color: #ffffff;
+          width: 70%;
+          height: 7%;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+          border: 1px solid #dbdbdb;
+
+          .user {
+            display: flex;
+            margin-left: 15px;
+
+            img {
+              height: 30px;
+              width: 30px;
+              border-radius: 15px;
+            }
+
+            span {
+              margin-top: 5px;
+              margin-left: 10px;
+              font-weight: 600;
+            }
+          }
+
+          .addmore {
+            margin-right: 15px;
+          }
+        }
+
+        .feedPhoto {
+          width: 70%;
+          height: 600px;
+        }
+
+        .commentWrapper {
+          // background-color: blue;
+          width: 70%;
+          height: 30%;
+          margin-bottom: 50px;
+
+          .menuNav {
+            background-color: bisque;
+            width: 100%;
+            height: 30%;
+            display: flex;
+            justify-content: space-between;
+
+            .conversation {
+              margin-left: 10px;
+            }
+
+            .save {
+              margin-right: 10px;
+            }
+          }
+
+          .commentLists {
+            padding: 0;
+            li {
+              list-style: none;
+            }
+          }
+        }
+        .comment {
+          width: 70%;
+          input {
+            width: 91%;
+            // display: block;
+          }
+        }
+      }
+    }
+
+    .main-right {
+      margin-top: 100px;
+
+      .recommendation {
+        width: 300px;
+        height: 200px;
+        border: 1px solid #dbdbdb;
+        padding-top: 15px;
+        padding-left: 15px;
+        overflow: auto;
+        background-color: #ffffff;
+
+        ul {
+          display: flex;
+          flex-direction: column;
+          padding: 0;
+
+          li {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            margin-bottom: 8px;
+
+            img {
+              width: 30px;
+              height: 30px;
+              border-radius: 15px;
+            }
+
+            .info {
+              .recoId {
+                font-weight: 600;
+              }
+              div:last-child {
+                color: #8e8e8e;
+              }
+            }
+
+            div {
+            }
+          }
+        }
+      }
+    }
+  }
+}
