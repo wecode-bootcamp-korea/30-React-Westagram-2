@@ -85,7 +85,7 @@ function MainSung() {
           <div className="main-right">
             <div className="account_box">
               <img
-                src="/images/wecode.png"
+                src="/images/sung/wecode.png"
                 alt="logo"
                 className="profile_logo"
               />
