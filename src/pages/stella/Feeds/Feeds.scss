@@ -120,6 +120,9 @@
       .today_diary {
         width: 100%;
         padding-left: 10px;
+        .bold {
+          font-weight: bold;
+        }
       }
     }
 
@@ -127,11 +130,18 @@
       display: flex;
       flex-direction: column;
 
-      .comment {
+      .commentId {
         font-size: 17px;
         font-weight: normal;
         line-height: normal;
         padding: 0 30px;
+        font-weight: bold;
+        .commentText {
+          font-size: 17px;
+          font-weight: normal;
+          line-height: normal;
+          padding: 0 5px;
+        }
 
         .more_btn {
           background-color: transparent;

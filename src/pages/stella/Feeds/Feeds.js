@@ -49,14 +49,17 @@ function Feeds() {
             >
               seungyoun_iain
             </a>
-            님 <b>외 4명</b>이 좋아합니다
+            님 <span className="bold">외 4명</span>이 좋아합니다
           </span>
         </div>
         <div className="chat">
-          <span className="comment">
-            <b>wecode_bootcamp</b> "위코드는 단순 교육업체가 아닌 개발자
-            커뮤니티입니다. Wecode에서 배우고 저는 5개의 회사에서 오퍼를
-            받았습니다. - Wecode 졸업생 강병진님"..
+          <span className="commentId">
+            wecode_bootcamp
+            <span className="commentText">
+              "위코드는 단순 교육업체가 아닌 개발자 커뮤니티입니다. Wecode에서
+              배우고 저는 5개의 회사에서 오퍼를 받았습니다. - Wecode 졸업생
+              강병진님"..
+            </span>
             <button className="more_btn">더 보기</button>
           </span>
           <span className="timeout">
