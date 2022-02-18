@@ -214,6 +214,7 @@
         .other_p {
           display: flex;
           flex-direction: column;
+          padding-left: 7px;
           span {
             &:nth-child(1) {
               font-weight: bold;
