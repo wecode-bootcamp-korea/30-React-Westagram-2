@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './LoginStella.scss';
 
 function LoginStella() {
   let [loginId, setLoginId] = useState('');
   let [loginPw, setLoginPw] = useState('');
+  let [loginCheck, setLoginCheck] = useState('');
+  const navigate = useNavigate();
   //[변수 , 함수]
   function handleIdInput(event) {
     setLoginId(event.target.value);
@@ -11,6 +14,17 @@ function LoginStella() {
   function handlePwInput(event) {
     setLoginPw(event.target.value);
   }
+
+  function loginInspect(event) {
+    loginId.includes('@') && loginPw.length > 4
+      ? setLoginCheck(true)
+      : setLoginCheck(false);
+  }
+
+  function mainCondition(event) {
+    loginCheck ? navigate('/main-stella') : alert('다시 확인해주세요.');
+  }
+
   return (
     <div className="login">
       <div className="wrap">
@@ -21,14 +35,28 @@ function LoginStella() {
             type="text"
             placeholder="전화번호, 사용자 이름 또는 이메일"
             onChange={handleIdInput}
+            onKeyUp={loginInspect}
           />
           <input
             id="password"
             type="password"
             placeholder="비밀번호"
             onChange={handlePwInput}
+            onKeyUp={loginInspect}
           />
-          <button id="btn" className="disabled">
+          <button
+            id="btn"
+            className="disabled"
+            onClick={mainCondition}
+            style={
+              loginCheck
+                ? { backgroundColor: `rgb(59, 125, 240)`, cursor: 'pointer' }
+                : {
+                    backgroundColor: `rgb(188, 224, 250)`,
+                    cursor: 'not-allowed',
+                  }
+            }
+          >
             로그인
           </button>
           <a href="#">비밀번호를 잊으셨나요?</a>
@@ -39,33 +67,3 @@ function LoginStella() {
 }
 
 export default LoginStella;
-
-// const btn = document.querySelector("#btn");
-// const idInput = document.querySelector("input#id");
-// const passwordInput = document.querySelector("input#password");
-
-// function onLogin(event){
-//     event.preventDefault();
-//     const id = document.querySelector("input#id").value;
-//     const password = document.querySelector("input#password").value;
-//     const string = "@";
-//     if(!id || !id.includes(string)){
-//         alert('ID를 다시 확인해주세요.');
-//         return
-//     }
-//     if(!password || password.length < 5){
-//         alert('Password를 확인해주세요');
-//         return
-//     }
-//     location.href = 'main.html';
-// }
-// function onWrite(event){
-//     const id = document.querySelector("input#id").value;
-//     const password = document.querySelector("input#password").value;
-//     console.log(id, password);
-//     return (id && password) ? btn.classList.remove('disabled'):btn.classList.add('disabled');
-// }
-
-// idInput.addEventListener("keyup", onWrite);
-// passwordInput.addEventListener("keyup",onWrite);
-// btn.addEventListener("click",onLogin);
