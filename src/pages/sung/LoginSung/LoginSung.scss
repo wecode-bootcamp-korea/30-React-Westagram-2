@@ -27,22 +27,6 @@
     margin: 0 auto;
   }
 
-  .login_box {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .elementOfLogin {
-    width: 268px;
-    height: 40px;
-    padding: 9px 0 7px 8px;
-    margin: 0 auto;
-    background-color: whitesmoke;
-    border: 1px solid lightgray;
-    border-radius: 3px;
-  }
-
   .loginbtn {
     width: 268px;
     height: 30px;
@@ -51,10 +35,11 @@
     background-color: rgb(64, 179, 250);
     border: 1px solid transparent;
     border-radius: 5px;
-  }
 
-  #id_input {
-    margin-bottom: 8px;
+    &.deactivate_btn {
+      background-color: rgba(27, 161, 245, 0.199);
+      cursor: not-allowed;
+    }
   }
 
   #forgot_password {
@@ -64,11 +49,6 @@
     border: transparent;
     bottom: -50px;
     margin: 0 auto;
-  }
-
-  .deactivate_btn {
-    background-color: rgba(27, 161, 245, 0.199);
-    cursor: not-allowed;
   }
 }
 

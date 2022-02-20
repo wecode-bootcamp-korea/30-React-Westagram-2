@@ -1,30 +1,36 @@
 import React from 'react';
 import './LoginSung.scss';
+import InputLoginSung from './InputLoginSung';
 
-function LoginSung() {
-  return (
-    <article className="container_login">
-      <div className="mainBox_login">
-        <h1 className="login_logo">westagram</h1>
-        <div className="login_box">
-          <input
-            type="text"
-            placeholder="Phone number, username, or email"
-            id="id_input"
-            className="elementOfLogin"
-          />
-          <input
-            type="password"
-            id="password_input"
-            placeholder="Password"
-            className="elementOfLogin"
-          />
+class LoginSung extends React.Component {
+  //
+  constructor() {
+    super();
+    this.state = {
+      inputValue: { idValue: '', pwValue: '' },
+      isButtonOn: false,
+    };
+  }
+  //
+  handleInput = e => {
+    const { name, value } = e.target;
+    this.setState({
+      inputValue: { ...this.state.inputValue, [name]: value },
+    });
+  };
+
+  render() {
+    return (
+      <article className="container_login">
+        <div className="mainBox_login">
+          <h1 className="login_logo">westagram</h1>
+          <InputLoginSung getInput={this.handleInput} />
           <button className="loginbtn deactivate_btn">Log in</button>
+          <button id="forgot_password">Forgot password?</button>
         </div>
-        <button id="forgot_password">Forgot password?</button>
-      </div>
-    </article>
-  );
+      </article>
+    );
+  }
 }
 
 export default LoginSung;

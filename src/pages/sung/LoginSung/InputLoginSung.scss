@@ -1,0 +1,19 @@
+.login_box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .elementOfLogin {
+    width: 268px;
+    height: 40px;
+    padding: 9px 0 7px 8px;
+    margin: 0 auto;
+    background-color: whitesmoke;
+    border: 1px solid lightgray;
+    border-radius: 3px;
+
+    &.id_input {
+      margin-bottom: 8px;
+    }
+  }
+}
