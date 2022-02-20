@@ -1,20 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const InputId = () => {
-  const [textId, setTextId] = useState('');
-
-  const handleIdInput = event => {
-    setTextId(event.target.value);
-  };
-
-  console.log(textId);
-
+const InputId = props => {
   return (
     <input
       id="id"
       type="text"
       placeholder="전화번호, 사용자 이름 또는 이메일"
-      onChange={handleIdInput}
+      onChange={props.handleIdInput}
     />
   );
 };
