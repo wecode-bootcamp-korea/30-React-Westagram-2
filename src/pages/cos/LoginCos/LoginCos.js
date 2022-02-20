@@ -1,12 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './LoginCos.scss';
 import { useNavigate } from 'react-router-dom';
 
 function LoginCos() {
+  const [idValue, setIdValue] = useState('');
+  const [pwValue, setPwValue] = useState('');
+
   const navigate = useNavigate();
 
   const goToMain = () => {
     navigate('/main-cos');
+  };
+
+  const handleIdInput = event => {
+    setIdValue(event.target.value);
+  };
+
+  const handlePwInput = event => {
+    setPwValue(event.target.value);
   };
 
   return (
@@ -19,10 +30,16 @@ function LoginCos() {
               type="text"
               id="text"
               placeholder="전화번호, 사용자 이름 또는 이메일"
+              onChange={handleIdInput}
             />
           </div>
           <div className="password-box box">
-            <input type="password" id="password" placeholder="비밀번호" />
+            <input
+              type="password"
+              id="password"
+              placeholder="비밀번호"
+              onChange={handlePwInput}
+            />
           </div>
           <div className="login-btn-box">
             <button
