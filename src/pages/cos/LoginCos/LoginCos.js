@@ -5,6 +5,11 @@ import { useNavigate } from 'react-router-dom';
 function LoginCos() {
   const [idValue, setIdValue] = useState('');
   const [pwValue, setPwValue] = useState('');
+  const [disabled, setDisabled] = useState(true);
+  const [style, setStyle] = useState({
+    backgroundColor: '#B1DFFC',
+    cursor: 'default',
+  });
 
   const navigate = useNavigate();
 
@@ -14,10 +19,39 @@ function LoginCos() {
 
   const handleIdInput = event => {
     setIdValue(event.target.value);
+    checkResult();
   };
 
   const handlePwInput = event => {
     setPwValue(event.target.value);
+    checkResult();
+  };
+
+  const checkId = value => {
+    return value.includes('@') ? true : false;
+  };
+
+  const checkPw = value => {
+    return value.length >= 5 ? true : false;
+  };
+
+  const checkResult = () => {
+    const isValidId = checkId(idValue);
+    const isValidPw = checkPw(pwValue);
+
+    if (isValidId && isValidPw) {
+      loginBtn(true);
+    } else {
+      loginBtn(false);
+    }
+  };
+
+  const loginBtn = btn => {
+    setDisabled(!btn);
+    setStyle({
+      backgroundColor: btn ? '#0695F6' : '#B1DFFC',
+      cursor: btn ? 'pointer' : 'default',
+    });
   };
 
   return (
@@ -43,9 +77,11 @@ function LoginCos() {
           </div>
           <div className="login-btn-box">
             <button
+              disabled={loginBtn}
               className="login-btn login-btn-after"
               onClick={goToMain}
               type="submit"
+              style={style}
             >
               로그인
             </button>
