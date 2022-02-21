@@ -1,36 +1,39 @@
 import React from 'react';
 import './LoginSung.scss';
+import { useState } from 'react';
 import InputLoginSung from './InputLoginSung';
 
-class LoginSung extends React.Component {
+function LoginSung() {
   //
-  constructor() {
-    super();
-    this.state = {
-      inputValue: { idValue: '', pwValue: '' },
-      isButtonOn: false,
-    };
-  }
-  //
-  handleInput = e => {
-    const { name, value } = e.target;
-    this.setState({
-      inputValue: { ...this.state.inputValue, [name]: value },
-    });
+
+  const [idValue, setIdValue] = useState('');
+  const [pwValue, setPwValue] = useState('');
+
+  const handleIdInput = e => {
+    setIdValue(e.target.value);
+  };
+  const handlePwInput = e => {
+    setPwValue(e.target.value);
   };
 
-  render() {
-    return (
-      <article className="container_login">
-        <div className="mainBox_login">
-          <h1 className="login_logo">westagram</h1>
-          <InputLoginSung getInput={this.handleInput} />
-          <button className="loginbtn deactivate_btn">Log in</button>
-          <button id="forgot_password">Forgot password?</button>
-        </div>
-      </article>
-    );
-  }
+  const condition = idValue.includes('@') && pwValue.length > 5;
+
+  return (
+    <article className="container_login">
+      <div className="mainBox_login">
+        <h1 className="login_logo">westagram</h1>
+        <InputLoginSung onChangeId={handleIdInput} onChangePw={handlePwInput} />
+        <button
+          className={condition ? 'activate_btn' : 'deactivate_btn'}
+          id="loginbtn"
+          type="submit"
+        >
+          Log in
+        </button>
+        <button id="forgot_password">Forgot password?</button>
+      </div>
+    </article>
+  );
 }
 
 export default LoginSung;

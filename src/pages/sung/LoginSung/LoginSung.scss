@@ -27,14 +27,17 @@
     margin: 0 auto;
   }
 
-  .loginbtn {
+  #loginbtn {
     width: 268px;
     height: 30px;
     margin: 20px 40px;
     color: white;
-    background-color: rgb(64, 179, 250);
     border: 1px solid transparent;
     border-radius: 5px;
+
+    &.activate_btn {
+      background-color: rgb(64, 179, 250);
+    }
 
     &.deactivate_btn {
       background-color: rgba(27, 161, 245, 0.199);
