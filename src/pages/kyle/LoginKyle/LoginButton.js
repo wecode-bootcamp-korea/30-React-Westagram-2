@@ -11,9 +11,10 @@ const LoginButton = props => {
     <button
       id="loginBtn"
       type="button"
+      disabled
       onClick={goToMain}
       style={{
-        backgroundColor: props.isPwOn && props.isIdOn ? '#0095F6' : '#C0DFFD',
+        backgroundColor: props.isBtnOn ? '#0095F6' : '#C0DFFD',
       }}
     >
       로그인
