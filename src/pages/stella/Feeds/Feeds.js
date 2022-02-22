@@ -1,6 +1,25 @@
+import React, { useState, useEffect } from 'react';
 import './Feeds.scss';
 
 function Feeds() {
+  let [textSave, setTextSave] = useState('');
+  let [comments, setComments] = useState([]);
+
+  const addComment = event => {
+    event.preventDefault();
+    setComments([...comments, textSave]);
+  };
+
+  useEffect(() => {
+    fetch('http://localhost:3000/data/commentData.json', {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(data => {
+        setComments(data);
+      });
+  }, []);
+
   return (
     <div className="feeds">
       <article>
@@ -66,10 +85,50 @@ function Feeds() {
             <b>54</b>분전 ..
           </span>
         </div>
-        <ul id="todo-list"></ul>
+        <ul id="todo-list" className="items">
+          {comments.map(comment => (
+            <li
+              key={comment.id}
+              className="comment-fillin"
+              style={{ marginBottom: '5px' }}
+            >
+              <span
+                className="newcomment-id"
+                style={{
+                  fontWeight: 'bold',
+                  paddingLeft: '30px',
+                  marginRight: '10px',
+                  fontSize: '17px',
+                }}
+              >
+                bts.bighit
+              </span>
+              <span className="newcomment-text" style={{ fontSize: '16px' }}>
+                {comment.comment}
+              </span>
+            </li>
+          ))}
+        </ul>
         <form id="todo-form">
-          <input type="textarea" placeholder="댓글 달기..." required />
-          <button className="post">게시</button>
+          <input
+            type="textarea"
+            placeholder="댓글 달기..."
+            onKeyUp={e => {
+              setTextSave(e.target.value);
+            }}
+            required
+          />
+          <button
+            className="post"
+            onClick={addComment}
+            style={
+              textSave
+                ? { color: `rgb(30, 145, 194)`, cursor: 'pointer' }
+                : { color: `rgb(147, 180, 194)` }
+            }
+          >
+            게시
+          </button>
         </form>
       </article>
     </div>
