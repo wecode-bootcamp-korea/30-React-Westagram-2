@@ -139,21 +139,19 @@
 
   #new_comment {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-content: center;
     padding-left: 8px;
     margin: 0;
+    background-color: white;
+    height: 8%;
   }
 
   .comment_box {
     background-color: white;
     height: 8%;
     /* margin-top: 6px; */
-  }
-
-  #delete {
-    margin-right: 15px;
-    cursor: pointer;
   }
 
   /* add a comment box */

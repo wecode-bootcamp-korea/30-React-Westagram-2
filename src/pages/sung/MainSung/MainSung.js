@@ -1,8 +1,31 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './MainSung.scss';
 import Nav from '../../../components/Nav/Nav';
+import { useState, useEffect } from 'react';
+import Comment from './Comment';
 
 function MainSung() {
+  const [comment, setComment] = useState('');
+  const [commentList, setCommentList] = useState([]);
+
+  // 구조분해할당
+
+  const getComment = e => {
+    console.log(e);
+    setComment(e.target.value);
+  };
+
+  const addComment = e => {
+    setCommentList(commentList.concat([comment]));
+    e.preventDefault();
+  };
+
+  // useEffect(() => {
+  //   fetch('http://localhost:3000/data/mock.json')
+  //     .then(res => res.json())
+  //     .then(data => setCommentList(data));
+  // }, []);
+
   return (
     <>
       <Nav />
@@ -62,25 +85,32 @@ function MainSung() {
               <div id="comment_box">
                 <ul id="new_comment">
                   <li className="a_comment">
-                    <span>wecode_bootcamp</span>
-                    <span>진정해 맨</span>
+                    <p>
+                      <span>wecode_bootcamp</span> 괜찮아 맨 YOU GOT THIS
+                    </p>
+                    <div className="trash-icon">
+                      <i className="far fa-trash-alt"></i>
+                    </div>
                   </li>
-                  <li>
-                    <span id="delete">x</span>
-                  </li>
+                  <Comment newCommentList={commentList} />
                 </ul>
               </div>
               <div className="new_comment_box">
-                <input
-                  type="text"
-                  placeholder="Add a comment"
-                  id="comment_input"
-                />
-                <input type="button" value="post" id="post_button" />
+                <form onSubmit={addComment}>
+                  <input
+                    type="text"
+                    onChange={getComment}
+                    //onChange값은 변화를 감지하면 어떤 것을 할지
+                    // 그것이 getComment
+                    // value={comment} -> 나중에 쓸지도 모름
+                    placeholder="Add a comment"
+                    id="comment_input"
+                  />
+                  <button id="post_button">post</button>
+                </form>
               </div>
             </div>
           </div>
-
           {/* <!-- main_right_box--> */}
           <div className="main-right">
             <div className="account_box">
@@ -148,7 +178,6 @@ function MainSung() {
                 </div>
               </div>
             </div>
-
             {/* <!--second box in the right side  --> */}
             <div className="side_box_setup" id="recommned_section">
               <div className="box_name">
@@ -204,7 +233,7 @@ function MainSung() {
               <div className="box_name" id="copyright">
                 <h5 className="color_h5">
                   Westagram &nbsp; 정보 지원 홍보 센터 API 채용정보
-                  개인정보처리방침 약관
+                  <p>개인정보처리방침 약관</p>
                 </h5>
                 <h5 className="color_h5">디렉터리 프로필 해시태그 언어 </h5>{' '}
                 <h5 className="color_h5">@ 2022 WESTAGRAM</h5>
