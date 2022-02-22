@@ -15,3 +15,5 @@ function Comment(props) {
   });
 }
 export default Comment;
+
+// props들 Comment로 전달!
