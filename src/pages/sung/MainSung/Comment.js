@@ -4,12 +4,14 @@ import './Comment';
 function Comment(props) {
   return props.newCommentList.map((comment, index) => {
     return (
-      <li key={index}>
-        <span>wecode_bootcamp</span>
-        {comment}
-        <div className="trash-icon">
+      <li className="eachComment" key={index}>
+        <span>
+          {comment.author} {comment.comment}
+        </span>
+        <span>&nbsp;</span>
+        <span className="trash-icon">
           <i className="far fa-trash-alt"></i>
-        </div>
+        </span>
       </li>
     );
   });

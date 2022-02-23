@@ -16,15 +16,22 @@ function MainSung() {
   };
 
   const addComment = e => {
-    setCommentList(commentList.concat([comment]));
+    setCommentList(
+      commentList.concat([
+        {
+          author: 'sunghoon',
+          comment: comment,
+        },
+      ])
+    );
     e.preventDefault();
   };
 
-  // useEffect(() => {
-  //   fetch('http://localhost:3000/data/mock.json')
-  //     .then(res => res.json())
-  //     .then(data => setCommentList(data));
-  // }, []);
+  useEffect(() => {
+    fetch('http://localhost:3000/data/mock.json')
+      .then(res => res.json())
+      .then(data => setCommentList(data));
+  }, []);
 
   return (
     <>
@@ -84,29 +91,25 @@ function MainSung() {
               </div>
               <div id="comment_box">
                 <ul id="new_comment">
-                  <li className="a_comment">
-                    <p>
-                      <span>wecode_bootcamp</span> 괜찮아 맨 YOU GOT THIS
-                    </p>
-                    <div className="trash-icon">
-                      <i className="far fa-trash-alt"></i>
-                    </div>
-                  </li>
                   <Comment newCommentList={commentList} />
                 </ul>
               </div>
               <div className="new_comment_box">
-                <form onSubmit={addComment}>
+                <form className="comment_form" onSubmit={addComment}>
                   <input
                     type="text"
                     onChange={getComment}
                     //onChange값은 변화를 감지하면 어떤 것을 할지
                     // 그것이 getComment
-                    // value={comment} -> 나중에 쓸지도 모름
+                    // value={comment}
+                    // -> 나중에 쓸지도 모름
                     placeholder="Add a comment"
                     id="comment_input"
                   />
-                  <button id="post_button">post</button>
+                  <button id="post_button">
+                    {/* form 안에있는 button은 default 로 submit 을 하는데 type 을 button 으로 주면 그 default가 작동 안함  */}
+                    post
+                  </button>
                 </form>
               </div>
             </div>
