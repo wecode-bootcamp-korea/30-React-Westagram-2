@@ -6,8 +6,13 @@ function Feeds() {
   let [comments, setComments] = useState([]);
 
   const addComment = event => {
+    setComments([
+      ...comments,
+      {
+        comment: textSave,
+      },
+    ]);
     event.preventDefault();
-    setComments([...comments, textSave]);
   };
 
   useEffect(() => {
@@ -99,11 +104,12 @@ function Feeds() {
                   paddingLeft: '30px',
                   marginRight: '10px',
                   fontSize: '17px',
+                  lineHeight: 'normal',
                 }}
               >
-                bts.bighit
+                bts_bighit
               </span>
-              <span className="newcomment-text" style={{ fontSize: '16px' }}>
+              <span className="newcomment-text" style={{ fontSize: '17px' }}>
                 {comment.comment}
               </span>
             </li>

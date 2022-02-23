@@ -22,7 +22,27 @@ function LoginStella() {
   }
 
   function mainCondition(event) {
-    loginCheck ? navigate('/main-stella') : alert('다시 확인해주세요.');
+    // loginCheck ? navigate('/main-stella') : alert('다시 확인해주세요.');
+    event.preventDefault();
+    fetch('http://10.58.5.209:8000/users/signin', {
+      method: 'post',
+      body: JSON.stringify({
+        email: loginId,
+        password: loginPw,
+      }),
+      //navigate는 로직안에서 쓸 수 있다! url은 조건없이 쓸수 있다!
+    })
+      .then(response => response.json())
+      .then(result => {
+        if (result.message === 'SUCCESS') {
+          alert('환영합니다!');
+          navigate('/main-stella');
+        } else {
+          alert('입력을 확인해주세요!');
+        }
+        console.log(result);
+        localStorage.setItem('access-token', result.access_token);
+      });
   }
 
   return (
@@ -48,6 +68,7 @@ function LoginStella() {
             id="btn"
             className="disabled"
             onClick={mainCondition}
+            // type="button" // type="button" //submit이면 새로고침되니까 button으로 써주기
             style={
               loginCheck
                 ? { backgroundColor: `rgb(59, 125, 240)`, cursor: 'pointer' }
