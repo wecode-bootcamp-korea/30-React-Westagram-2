@@ -40,8 +40,8 @@ function LoginStella() {
         } else {
           alert('입력을 확인해주세요!');
         }
-        console.log(result);
-        localStorage.setItem('access-token', result.access_token);
+        // console.log(result);
+        // localStorage.setItem('access-token', result.access_token);
       });
   }
 
