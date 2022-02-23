@@ -1,0 +1,44 @@
+.main-right {
+  margin-top: 100px;
+
+  .recommendation {
+    width: 300px;
+    height: 300px;
+    border: 1px solid #dbdbdb;
+    padding-top: 15px;
+    padding-left: 15px;
+    overflow: auto;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+
+    ul {
+      display: flex;
+      flex-direction: column;
+
+      li {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 10px;
+        margin-bottom: 15px;
+
+        img {
+          width: 30px;
+          height: 30px;
+          border-radius: 15px;
+        }
+
+        .info {
+          display: flex;
+          flex-direction: column;
+          .recoId {
+            font-weight: 600;
+          }
+          div:last-child {
+            color: #8e8e8e;
+          }
+        }
+      }
+    }
+  }
+}

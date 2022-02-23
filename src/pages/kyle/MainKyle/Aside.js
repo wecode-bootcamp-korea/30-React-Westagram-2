@@ -1,3 +1,5 @@
+import './Aside.scss';
+
 function Aside() {
   return (
     <aside className="main-right">

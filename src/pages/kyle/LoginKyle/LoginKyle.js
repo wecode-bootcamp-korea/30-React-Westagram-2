@@ -18,8 +18,8 @@ const LoginKyle = () => {
     setPasswordValue(event.target.value);
   };
 
-  console.log(`저장된 ID 값 ->`, valueId);
-  console.log(`저장된 PW 값 ->`, valuePw);
+  // console.log(`저장된 ID 값 ->`, valueId);
+  // console.log(`저장된 PW 값 ->`, valuePw);
 
   //ID 유효성 검사
   const checkLogin = (id, pw) => {
@@ -38,7 +38,7 @@ const LoginKyle = () => {
         <form className="loginForm">
           <InputId handleIdInput={handleIdInput} />
           <InputPassword handlePasswordInput={handlePasswordInput} />
-          <LoginButton isBtnOn={isBtnOn} />
+          <LoginButton isBtnOn={isBtnOn} valueId={valueId} valuePw={valuePw} />
         </form>
         <span className="passwordContainer">
           <a href="#">비밀번호를 잊으셨나요? {valueId}</a>

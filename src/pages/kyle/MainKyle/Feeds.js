@@ -1,6 +1,25 @@
+import { useState } from 'react';
+import CommentList from './CommentList';
 import './Feeds.scss';
 
-function Feeds() {
+function Feeds({ name }) {
+  // const [content, setContent] = useState("");
+  const [content, setContent] = useState([]);
+  const [contentArray, setContentArray] = useState([]);
+
+  const commentContent = event => {
+    setContent(event.target.value);
+  };
+  console.log(`content에 담기는 값은 -> `, content);
+  // console.log(typeof content);
+
+  const handleClick = e => {
+    e.preventDefault();
+    contentArray.push(content);
+    setContentArray(contentArray);
+    setContent('');
+  };
+
   return (
     <div className="feeds">
       <article>
@@ -40,18 +59,9 @@ function Feeds() {
                 className="profileImg"
               />
             </div>
-            <span className="today_diary">
-              <a
-                style={{
-                  fontWeight: 'bold',
-                  color: '#000',
-                  fontSize: '17px',
-                }}
-                href="#"
-              >
-                gunhee_jeong
-              </a>
-              님 <span className="bold">외 9명</span>이 좋아합니다
+            <span className="likesNum">
+              <a href="#">gunhee_jeong</a>님<span className="bold">외 9명</span>
+              이 좋아합니다
             </span>
           </div>
 
@@ -69,11 +79,16 @@ function Feeds() {
               <b>11</b>분전 ..
             </span>
           </div>
-
-          <ul id="todo-list" />
-          <form id="todo-form">
-            <input type="textarea" placeholder="댓글 달기..." />
-            <button className="post">게시</button>
+          <CommentList />
+          <form id="chat-form">
+            <input
+              onChange={commentContent}
+              type="text"
+              placeholder="댓글 달기..."
+            />
+            <button className="post" onClick={handleClick}>
+              게시
+            </button>
           </form>
         </div>
       </article>
