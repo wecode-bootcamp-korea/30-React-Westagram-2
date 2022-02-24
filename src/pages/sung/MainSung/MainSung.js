@@ -7,11 +7,12 @@ import Comment from './Comment';
 function MainSung() {
   const [comment, setComment] = useState('');
   const [commentList, setCommentList] = useState([]);
+  // 댓글 입력, 댓글 추가
 
   // 구조분해할당
 
   const getComment = e => {
-    console.log(e);
+    //console.log(e);
     setComment(e.target.value);
   };
 

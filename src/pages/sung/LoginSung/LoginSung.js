@@ -20,7 +20,7 @@ function LoginSung() {
   const condition = idValue.includes('@') && pwValue.length > 5;
 
   const goToMain = () => {
-    fetch('http://10.58.5.208:8000/users/signup', {
+    fetch('http://10.58.5.208:8000/users/login', {
       method: 'POST',
       body: JSON.stringify({
         first_name: 'Sung',
