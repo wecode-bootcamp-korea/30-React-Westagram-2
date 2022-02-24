@@ -5,12 +5,15 @@
   border-bottom: 2px solid #ddd;
   background-color: #fff;
   padding: 25px;
+  position: fixed;
+  z-index: 5;
 
   .inner {
     width: 1180px;
     display: flex;
     margin: 0 auto;
     justify-content: space-between;
+    align-items: center;
     position: relative;
   }
 
@@ -22,9 +25,10 @@
   .nav_logo {
     display: flex;
     h1 {
-      font-family: "Lobster";
+      font-family: 'Lobster';
       color: #222;
       font-weight: normal;
+      font-size: 25px;
     }
     .fa-instagram {
       color: #222;
@@ -36,7 +40,7 @@
         height: 15px;
         background-color: #222;
         border: 1px solid #222;
-        content: "";
+        content: '';
         margin-left: 15px;
       }
     }
@@ -66,7 +70,7 @@
       line-height: 20px;
       font-size: 13px;
       position: absolute;
-      left: 585px;
+      left: 587px;
       top: 8px;
       margin-right: 10px;
     }
