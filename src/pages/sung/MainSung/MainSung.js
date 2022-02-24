@@ -26,6 +26,7 @@ function MainSung() {
       ])
     );
     e.preventDefault();
+    setComment('');
   };
 
   useEffect(() => {
@@ -106,6 +107,7 @@ function MainSung() {
                     // -> 나중에 쓸지도 모름
                     placeholder="Add a comment"
                     id="comment_input"
+                    value={comment}
                   />
                   <button id="post_button">
                     {/* form 안에있는 button은 default 로 submit 을 하는데 type 을 button 으로 주면 그 default가 작동 안함  */}
