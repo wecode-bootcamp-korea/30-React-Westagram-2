@@ -1,0 +1,53 @@
+.LoginContainer {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .loginInner {
+    padding: 50px;
+    border: 1px solid grey;
+    text-align: center;
+
+    h1 {
+      font-family: 'pacifico', cursive;
+      font-size: 50px;
+    }
+
+    .loginForm {
+      display: flex;
+      flex-direction: column;
+      margin: 80px 0 50px 0;
+      font-size: 15px;
+
+      input {
+        width: 350px;
+        margin-bottom: 10px;
+        padding: 10px 0 10px 10px;
+        border: 1px solid gray;
+        border-radius: 5px;
+        background-color: #fafafa;
+        outline: none;
+      }
+
+      #loginBtn {
+        padding: 10px 0;
+        background-color: #0095f6;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        outline: none;
+        opacity: 0.3;
+      }
+    }
+
+    .passwordContainer {
+      color: darkblue;
+      // color: red;
+      font-weight: bold;
+      text-decoration: none;
+      cursor: pointer;
+      opacity: 0.7;
+    }
+  }
+}

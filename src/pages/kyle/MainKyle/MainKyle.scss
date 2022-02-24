@@ -1,0 +1,16 @@
+.MainKyle {
+  box-sizing: border-box;
+  width: 100%;
+  background-color: #fafafa;
+
+  div {
+    display: flex;
+
+    main {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      margin-bottom: 100px;
+    }
+  }
+}
