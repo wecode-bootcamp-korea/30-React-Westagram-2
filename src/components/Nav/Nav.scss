@@ -5,6 +5,8 @@
   border-bottom: 2px solid #ddd;
   background-color: #fff;
   padding: 25px;
+  position: fixed;
+  z-index: 5;
 
   .inner {
     width: 1180px;
