@@ -1,64 +1,58 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './LoginCos.scss';
 import { useNavigate } from 'react-router-dom';
 
 function LoginCos() {
   const [idValue, setIdValue] = useState('');
   const [pwValue, setPwValue] = useState('');
-  const [disabled, setDisabled] = useState(true);
-  const [style, setStyle] = useState({
-    backgroundColor: '#B1DFFC',
-    cursor: 'default',
-  });
 
   const navigate = useNavigate();
+  // useEffect(
+  //   () =>
+  //     fetch('http://10.58.6.42:8000/users/signup', {
+  //       method: 'POST',
+  //       body: JSON.stringify({
+  //         email: 'test@tests.com',
+  //         password: '123456',
+  //       }),
+  //     })
+  //       .then(response => response.json())
+  //       .then(result => console.log('결과: ', result)),
+  //   []
+  // );
 
-  const goToMain = () => {
-    navigate('/main-cos');
+  const goToMain = e => {
+    e.preventDefault();
+    fetch('http://10.58.6.42:8000/users/login', {
+      method: 'POST',
+      body: JSON.stringify({
+        email: idValue,
+        password: pwValue,
+      }),
+    })
+      .then(response => response.json())
+      .then(result => {
+        if (result.token) {
+          navigate('/main-cos');
+        } else {
+          alert('가입된 회원이 아닙니다. 회원가입을 먼저 해주세요.');
+        }
+      });
   };
 
   const handleIdInput = event => {
     setIdValue(event.target.value);
-    checkResult();
   };
 
   const handlePwInput = event => {
     setPwValue(event.target.value);
-    checkResult();
-  };
-
-  const checkId = value => {
-    return value.includes('@') ? true : false;
-  };
-
-  const checkPw = value => {
-    return value.length >= 5 ? true : false;
-  };
-
-  const checkResult = () => {
-    const isValidId = checkId(idValue);
-    const isValidPw = checkPw(pwValue);
-
-    if (isValidId && isValidPw) {
-      loginBtn(true);
-    } else {
-      loginBtn(false);
-    }
-  };
-
-  const loginBtn = btn => {
-    setDisabled(!btn);
-    setStyle({
-      backgroundColor: btn ? '#0695F6' : '#B1DFFC',
-      cursor: btn ? 'pointer' : 'default',
-    });
   };
 
   return (
     <div className="login">
       <div className="login-container">
         <h1 className="main-title">Westagram</h1>
-        <div className="login-box">
+        <form className="login-box" onSubmit={goToMain}>
           <div className="id-box box">
             <input
               type="text"
@@ -77,16 +71,18 @@ function LoginCos() {
           </div>
           <div className="login-btn-box">
             <button
-              disabled={loginBtn}
-              className="login-btn login-btn-after"
+              className={`login-btn ${
+                idValue.indexOf('@') > -1 && pwValue.length >= 5
+                  ? 'login-btn-on'
+                  : ''
+              }`}
               onClick={goToMain}
               type="submit"
-              style={style}
             >
               로그인
             </button>
           </div>
-        </div>
+        </form>
         <a href="#">비밀번호를 잊으셨나요?</a>
       </div>
     </div>

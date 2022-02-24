@@ -1,8 +1,31 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './MainCos.scss';
 import Nav from '../../../components/Nav/Nav';
+import CommentList from './CommentList';
 
 function MainCos() {
+  const [comment, setComment] = useState('');
+  const [commentList, setCommentList] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:3000/data/commentData.json')
+      .then(res => res.json())
+      .then(data => {
+        setCommentList(data);
+      });
+  }, []);
+
+  let strs = '';
+  const getComment = e => {
+    strs += e.target.value;
+    setComment(strs);
+  };
+
+  const addComment = e => {
+    e.preventDefault();
+    setCommentList([...commentList, { name: comment, content: comment }]);
+  };
+
   return (
     <>
       <Nav />
@@ -57,36 +80,16 @@ function MainCos() {
                   <b>_danbi_22</b>님 <b>외 10명</b>이 좋아합니다
                 </p>
               </div>
-              <div className="comment-info">
-                <div className="comment">
-                  <p>
-                    <b>junzerokim</b>&nbsp;단뱌~
-                  </p>
-                  <img
-                    className="comment-like-logo"
-                    src="/images/cos/like.png"
-                    alt=""
-                  />
-                </div>
-                <div className="comment">
-                  <p>
-                    <b>_danbi_22</b>&nbsp;귀엽지?
-                  </p>
-                  <img
-                    className="comment-like-logo"
-                    src="/images/cos/like.png"
-                    alt=""
-                  />
-                </div>
-              </div>
-              <div className="comment-write">
+              <CommentList commentList={commentList} />
+              <form className="comment-write" onSubmit={addComment}>
                 <input
                   className="comment-box"
                   type="text"
                   placeholder="댓글 달기..."
+                  onChange={getComment}
                 />
                 <button className="comment-btn">게시</button>
-              </div>
+              </form>
             </article>
           </div>
           <div className="main-right">

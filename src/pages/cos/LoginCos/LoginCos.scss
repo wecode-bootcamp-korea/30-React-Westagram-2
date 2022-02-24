@@ -47,17 +47,22 @@ body {
         padding-left: 25px;
         border: 1px solid rgb(0, 0, 0, .1);
       }
-
+      
       .login-btn {
         width: 750px;
         height: 75px;
-        background-color: #B1DFFC;
+        background-color: skyblue;
         color: white;
         border: none;
         border-radius: 10px;
         margin-top: 10px;
         font-weight: bold;
         font-size: 35px;
+      }
+      
+      .login-btn-on {
+        cursor: pointer;
+        background-color: #0695F6;
       }
 
       .box {
@@ -92,9 +97,4 @@ body {
     text-decoration: none;
     font-size: 30px;
   }
-}
-
-.login-btn-on {
-  cursor: pointer;
-  background-color: #0695F6;
 }
