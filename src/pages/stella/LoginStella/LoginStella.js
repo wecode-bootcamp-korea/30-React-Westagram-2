@@ -5,7 +5,7 @@ import './LoginStella.scss';
 function LoginStella() {
   let [loginId, setLoginId] = useState('');
   let [loginPw, setLoginPw] = useState('');
-  let [loginCheck, setLoginCheck] = useState('');
+  let [loginCheck, setLoginCheck] = useState(false);
   const navigate = useNavigate();
   //[변수 , 함수]
   function handleIdInput(event) {

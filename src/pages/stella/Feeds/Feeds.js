@@ -14,6 +14,7 @@ function Feeds() {
       },
     ]);
     event.preventDefault();
+    event.target.reset();
   };
   //useState('')->useState([])->useEffect 순서로 실행된다.
   useEffect(() => {
@@ -116,7 +117,7 @@ function Feeds() {
             </li>
           ))}
         </ul>
-        <form id="todo-form">
+        <form id="todo-form" onSubmit={addComment}>
           <input
             type="text"
             placeholder="댓글 달기..."
@@ -127,7 +128,8 @@ function Feeds() {
           />
           <button
             className="post"
-            onClick={addComment}
+            type="submit"
+            // onClick={addComment}
             style={
               textSave
                 ? { color: `rgb(30, 145, 194)`, cursor: 'pointer' }
