@@ -4,7 +4,8 @@ import './Feeds.scss';
 function Feeds() {
   let [textSave, setTextSave] = useState('');
   let [comments, setComments] = useState([]);
-
+  // let [postbtn] = useState();
+  //comments를 업데이트 해주는 함수 : setComments
   const addComment = event => {
     setComments([
       ...comments,
@@ -14,14 +15,14 @@ function Feeds() {
     ]);
     event.preventDefault();
   };
-
+  //useState('')->useState([])->useEffect 순서로 실행된다.
   useEffect(() => {
     fetch('http://localhost:3000/data/commentData.json', {
       method: 'GET',
     })
-      .then(res => res.json())
-      .then(data => {
-        setComments(data);
+      .then(res => res.json()) //res라는 명칭이 중요치않음
+      .then(comments => {
+        setComments(comments); //useState에서 comments라는 녀석을 업데이트를 해준다
       });
   }, []);
 
@@ -117,7 +118,7 @@ function Feeds() {
         </ul>
         <form id="todo-form">
           <input
-            type="textarea"
+            type="text"
             placeholder="댓글 달기..."
             onKeyUp={e => {
               setTextSave(e.target.value);
