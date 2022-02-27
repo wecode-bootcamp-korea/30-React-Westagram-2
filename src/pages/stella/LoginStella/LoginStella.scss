@@ -52,10 +52,13 @@
       color: #fff;
       font-weight: bold;
       border-radius: 7px;
+    }
+    .btnActive {
       cursor: pointer;
       background-color: rgb(59, 125, 240);
     }
-    .disabled {
+
+    .btnDie {
       cursor: not-allowed;
       background-color: rgb(188, 224, 250);
     }

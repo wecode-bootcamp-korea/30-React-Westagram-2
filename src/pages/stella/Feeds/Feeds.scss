@@ -123,6 +123,11 @@
         .bold {
           font-weight: bold;
         }
+        a {
+          font-weight: bold;
+          color: #000;
+          font-size: 17px;
+        }
       }
     }
 
@@ -165,6 +170,20 @@
       }
     }
 
+    #todo-list {
+      .comment-fillin {
+        margin-bottom: 5px;
+      }
+
+      .newcomment-id {
+        font-weight: bold;
+        padding-left: 30px;
+        margin-right: 10px;
+        font-size: 17px;
+        line-height: normal;
+      }
+    }
+
     #todo-form {
       input {
         text-align: left;
@@ -197,7 +216,12 @@
         font-weight: bold;
       }
 
-      .post {
+      .btnActive {
+        cursor: pointer;
+        color: rgb(30, 145, 194);
+      }
+
+      .btnDie {
         cursor: not-allowed;
         color: rgb(147, 180, 194);
       }

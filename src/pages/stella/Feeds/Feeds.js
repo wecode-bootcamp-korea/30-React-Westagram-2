@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import Comments from './Comments';
 import './Feeds.scss';
 
 function Feeds() {
-  let [textSave, setTextSave] = useState('');
-  let [comments, setComments] = useState([]);
+  const [textSave, setTextSave] = useState('');
+  const [comments, setComments] = useState([]);
   // let [postbtn] = useState();
   //comments를 업데이트 해주는 함수 : setComments
   const addComment = event => {
@@ -41,41 +42,32 @@ function Feeds() {
             </div>
           </div>
           <div className="menu_bar">
-            <i className="fas fa-bars hamburger"></i>
+            <i className="fas fa-bars hamburger" />
           </div>
         </div>
-        <div className="main_img"></div>
+        <div className="main_img" />
         <ul className="icon">
           <div className="left">
             <li>
-              <i className="fas fa-heart"></i>
+              <i className="fas fa-heart" />
             </li>
             <li>
-              <i className="far fa-comment"></i>
+              <i className="far fa-comment" />
             </li>
             <li>
-              <i className="fas fa-share-square"></i>
+              <i className="fas fa-share-square" />
             </li>
           </div>
           <li>
-            <i className="far fa-bookmark"></i>
+            <i className="far fa-bookmark" />
           </li>
         </ul>
 
         <div className="write">
-          <div className="photo"></div>
+          <div className="photo" />
           <span className="today_diary">
-            <a
-              style={{
-                fontWeight: 'bold',
-                color: '#000',
-                fontSize: '17px',
-              }}
-              href="#"
-            >
-              seungyoun_iain
-            </a>
-            님 <span className="bold">외 4명</span>이 좋아합니다
+            <a href="#">seungyoun_iain</a>님{' '}
+            <span className="bold">외 4명</span>이 좋아합니다
           </span>
         </div>
         <div className="chat">
@@ -92,31 +84,7 @@ function Feeds() {
             <b>54</b>분전 ..
           </span>
         </div>
-        <ul id="todo-list" className="items">
-          {comments.map(comment => (
-            <li
-              key={comment.id}
-              className="comment-fillin"
-              style={{ marginBottom: '5px' }}
-            >
-              <span
-                className="newcomment-id"
-                style={{
-                  fontWeight: 'bold',
-                  paddingLeft: '30px',
-                  marginRight: '10px',
-                  fontSize: '17px',
-                  lineHeight: 'normal',
-                }}
-              >
-                bts_bighit
-              </span>
-              <span className="newcomment-text" style={{ fontSize: '17px' }}>
-                {comment.comment}
-              </span>
-            </li>
-          ))}
-        </ul>
+        <Comments comments={comments} />
         <form id="todo-form" onSubmit={addComment}>
           <input
             type="text"
@@ -126,16 +94,7 @@ function Feeds() {
             }}
             required
           />
-          <button
-            className="post"
-            type="submit"
-            // onClick={addComment}
-            style={
-              textSave
-                ? { color: `rgb(30, 145, 194)`, cursor: 'pointer' }
-                : { color: `rgb(147, 180, 194)` }
-            }
-          >
+          <button className={textSave ? 'btnActive' : 'btnDie'} type="submit">
             게시
           </button>
         </form>
