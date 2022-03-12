@@ -1,0 +1,58 @@
+// container_login 자체로 nesting 했음
+.container_login {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  background-color: whitesmoke;
+
+  .mainBox_login {
+    width: 350px;
+    max-width: 350px;
+    height: 382px;
+    margin: 12px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+    border: 1px solid lightgray;
+  }
+
+  .login_logo {
+    position: relative;
+    top: -40px;
+    font-family: 'Lobster', sans-serif;
+    font-size: 350%;
+    font-weight: normal;
+    margin: 0 auto;
+  }
+
+  #loginbtn {
+    width: 268px;
+    height: 30px;
+    margin: 20px 40px;
+    color: white;
+    border: 1px solid transparent;
+    border-radius: 5px;
+
+    &.activate_btn {
+      background-color: rgb(64, 179, 250);
+    }
+
+    &.deactivate_btn {
+      background-color: rgba(27, 161, 245, 0.199);
+      cursor: not-allowed;
+    }
+  }
+
+  #forgot_password {
+    position: relative;
+    color: darkblue;
+    background-color: white;
+    border: transparent;
+    bottom: -50px;
+    margin: 0 auto;
+  }
+}
+
+// }

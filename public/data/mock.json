@@ -1,1 +1,23 @@
-{}
+[
+  {
+    "id": 0,
+    "author": "Sung",
+    "comment": "Hello new world"
+  },
+  {
+    "id": 1,
+    "author": "Stella",
+    "comment": "Hello old world"
+  },
+
+  { "id": 2, "author": "Kyle", "comment": "Hello America" },
+  {
+    "id": "3",
+    "author": "Cos",
+    "comment": "Hello Atlanta"
+  },
+
+  { "id": "4", "author": "Danny", "comment": "Hello Austrailia" },
+  { "id": "5", "author": "Sarah", "comment": "Hello Sinsa " },
+  { "id": "6", "author": "Agnes", "comment": "Hello NewYork" }
+]
