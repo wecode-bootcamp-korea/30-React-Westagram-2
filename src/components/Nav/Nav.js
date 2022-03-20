@@ -9,7 +9,7 @@ function Nav() {
             <i className="fab fa-instagram"></i>
           </a>
           <a href="#">
-            <h1>Instagram</h1>
+            <h1>Westagram</h1>
           </a>
         </div>
         <div className="nav_search">

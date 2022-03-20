@@ -1,0 +1,16 @@
+.main {
+  width: 100%;
+  margin-bottom: 10px;
+  background-color: rgb(251, 248, 248);
+  padding-top: 70px;
+
+  .inner {
+    max-width: 1180px;
+    margin: 0 auto;
+
+    .wrap {
+      display: flex;
+      width: 100%;
+    }
+  }
+}
